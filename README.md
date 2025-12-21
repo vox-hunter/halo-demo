@@ -1,11 +1,12 @@
 # Showcase of Halo: The Most Powerful AI Landing Page Builder
 
-This repository demonstrates the capabilities of Halo, an AI-powered landing page builder. Below are examples of landing pages created with single prompts and zero iterations.
+This repository demonstrates the capabilities of Halo, an AI-powered landing page builder. Below are examples of landing pages created with a single prompt and no iterations.
 
 ## Demos
 
 ### 1. Phaser3 Gaming Framework
 **Live Demo:** [https://vox-hunter.github.io/halo-demo/phaser3](https://vox-hunter.github.io/halo-demo/phaser3)
+**Lovable.dev Comparison:** [https://play-joyful-framework.lovable.app](https://play-joyful-framework.lovable.app) 
 
 **Prompt:**
 > "I want to create a landing page for my new phaser 3 gaming framework. we want to showcase our framework's capabilities"
@@ -13,8 +14,6 @@ This repository demonstrates the capabilities of Halo, an AI-powered landing pag
 **Constraints:**
 - External tools (stock images, icons) were **disabled**.
 - The AI was forced to create everything from scratch using only code.
-
----
 
 ### 2. Airy Air Freshener
 **Live Demo:** [https://vox-hunter.github.io/halo-demo/airy](https://vox-hunter.github.io/halo-demo/airy)
@@ -26,11 +25,12 @@ This repository demonstrates the capabilities of Halo, an AI-powered landing pag
 - External tools (stock images, icons) were **enabled**.
 - *Note:* Due to budget limits, the AI used a stock image instead of generating a new one.
 
----
+## Comparison: Halo vs Lovable.dev
 
-## Comparison: vs Lovable.dev
+To provide a comparison, we ran the same prompts on Lovable.dev.
 
-**Competitor Demo:** [https://airy-flower-scent.lovable.app](https://airy-flower-scent.lovable.app)
+### Airy Air Freshener
+**Lovable.dev Result:** [https://airy-flower-scent.lovable.app](https://airy-flower-scent.lovable.app)
 
 **Prompt:**
 > "I want to create a landing page for my air freshener. we want to showcase our vanilla flavoured air freshener shaped like a flower. our company name is airy."
