@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHASER 3 // HIGH-PERFORMANCE GAME ENGINE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+    
+    <!-- Scanline Animation -->
+    <div class="scanline"></div>
+
+    <!-- Debug Console Sidebar -->
+    <aside class="debug-console">
+        <div class="console-header">
+            <span class="console-title">// DEBUG_CONSOLE</span>
+            <span class="console-status">●LIVE</span>
+        </div>
+        <div class="console-content" id="consoleLog">
+            <div class="log-entry">[INIT] Framework loaded</div>
+            <div class="log-entry">[SYSTEM] Viewport detected</div>
+            <div class="log-entry">[READY] Awaiting input...</div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <div class="hero-label">NEXT-GEN // FRAMEWORK</div>
+                    <h1 class="hero-title">
+                        <span class="title-line">PHASER<span class="accent-text">_3</span></span>
+                        <span class="title-line">GAME ENGINE</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        High-performance WebGL/Canvas rendering engine for browsers.
+                        Built for speed. Designed for developers.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn-primary">
+                            <span class="btn-icon">▸</span>
+                            INITIALIZE FRAMEWORK
+                        </button>
+                        <button class="btn-secondary">
+                            <span class="btn-icon">&lt;/&gt;</span>
+                            VIEW DOCUMENTATION
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">60</span>
+                            <span class="stat-label">FPS</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">10K+</span>
+                            <span class="stat-label">SPRITES</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">&lt;1MS</span>
+                            <span class="stat-label">LATENCY</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <canvas id="icosahedronCanvas"></canvas>
+                    <div class="visual-labels">
+                        <div class="label-item label-top">WEBGL_RENDERER</div>
+                        <div class="label-item label-left">PHYSICS_ENGINE</div>
+                        <div class="label-item label-right">ASSET_LOADER</div>
+                        <div class="label-item label-bottom">AUDIO_SYSTEM</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Specs Section -->
+        <section class="specs-section">
+            <div class="section-header">
+                <h2 class="section-title">// CORE_SPECIFICATIONS</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-window" data-spec="rendering">
+                    <div class="window-header">
+                        <span class="window-title">RENDERING_ENGINE</span>
+                        <span class="window-status">ACTIVE</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="spec-icon">⬢</div>
+                        <h3>WebGL + Canvas</h3>
+                        <p>Dual-mode rendering pipeline with automatic fallback. Hardware-accelerated compositing for 60fps+ performance.</p>
+                        <div class="spec-details">
+                            <span class="detail-tag">WEBGL2</span>
+                            <span class="detail-tag">BATCHING</span>
+                            <span class="detail-tag">SHADERS</span>
+                        </div>
+                        <div class="code-preview">
+                            <pre><code>const config = {
+  type: Phaser.AUTO,
+  renderer: WebGL,
+  antialias: true
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-window" data-spec="physics">
+                    <div class="window-header">
+                        <span class="window-title">PHYSICS_SYSTEM</span>
+                        <span class="window-status">ACTIVE</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="spec-icon">◈</div>
+                        <h3>Arcade + Matter.js</h3>
+                        <p>Integrated physics engines: lightweight Arcade for 2D platformers, Matter.js for complex rigid body simulation.</p>
+                        <div class="spec-details">
+                            <span class="detail-tag">COLLISION</span>
+                            <span class="detail-tag">VELOCITY</span>
+                            <span class="detail-tag">GRAVITY</span>
+                        </div>
+                        <div class="code-preview">
+                            <pre><code>this.physics.add.collider(
+  player, platforms
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-window" data-spec="audio">
+                    <div class="window-header">
+                        <span class="window-title">AUDIO_SUBSYSTEM</span>
+                        <span class="window-status">ACTIVE</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="spec-icon">♫</div>
+                        <h3>Web Audio API</h3>
+                        <p>Spatial audio positioning, mixing, and effects. Supports MP3, OGG, WAV with seamless looping and sprite sheets.</p>
+                        <div class="spec-details">
+                            <span class="detail-tag">3D_SOUND</span>
+                            <span class="detail-tag">MIXER</span>
+                            <span class="detail-tag">EFFECTS</span>
+                        </div>
+                        <div class="code-preview">
+                            <pre><code>this.sound.play('explosion', {
+  volume: 0.8
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-window" data-spec="input">
+                    <div class="window-header">
+                        <span class="window-title">INPUT_HANDLER</span>
+                        <span class="window-status">ACTIVE</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="spec-icon">⌨</div>
+                        <h3>Multi-Input System</h3>
+                        <p>Unified input management: keyboard, mouse, touch, gamepad. Event-driven with gesture recognition and pointer tracking.</p>
+                        <div class="spec-details">
+                            <span class="detail-tag">KEYBOARD</span>
+                            <span class="detail-tag">GAMEPAD</span>
+                            <span class="detail-tag">TOUCH</span>
+                        </div>
+                        <div class="code-preview">
+                            <pre><code>this.input.keyboard.on(
+  'keydown', callback
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-window" data-spec="assets">
+                    <div class="window-header">
+                        <span class="window-title">ASSET_LOADER</span>
+                        <span class="window-status">ACTIVE</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="spec-icon">▣</div>
+                        <h3>Smart Preloading</h3>
+                        <p>Asynchronous asset management with progress tracking. Supports sprites, atlases, tilemaps, JSON, XML, and binary data.</p>
+                        <div class="spec-details">
+                            <span class="detail-tag">ATLAS</span>
+                            <span class="detail-tag">JSON</span>
+                            <span class="detail-tag">CACHE</span>
+                        </div>
+                        <div class="code-preview">
+                            <pre><code>this.load.image('logo',
+  'assets/logo.png'
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-window" data-spec="scenes">
+                    <div class="window-header">
+                        <span class="window-title">SCENE_MANAGER</span>
+                        <span class="window-status">ACTIVE</span>
+                    </div>
+                    <div class="window-content">
+                        <div class="spec-icon">⊞</div>
+                        <h3>State Management</h3>
+                        <p>Modular scene system with lifecycle hooks. Run multiple scenes in parallel, transition with tweens and effects.</p>
+                        <div class="spec-details">
+                            <span class="detail-tag">LIFECYCLE</span>
+                            <span class="detail-tag">PARALLEL</span>
+                            <span class="detail-tag">TRANSITION</span>
+                        </div>
+                        <div class="code-preview">
+                            <pre><code>this.scene.start(
+  'GameScene'
+);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="section-header">
+                <h2 class="section-title">// FEATURE_MATRIX</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" data-feature="performance">
+                    <div class="feature-number">01</div>
+                    <div class="feature-content">
+                        <h3>ZERO-OVERHEAD RENDERING</h3>
+                        <p>Optimized rendering pipeline with sprite batching, texture atlases, and GPU-accelerated transforms. Render thousands of sprites at 60fps.</p>
+                        <div class="feature-metrics">
+                            <div class="metric">
+                                <span class="metric-value">10,000+</span>
+                                <span class="metric-label">Sprites/Frame</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">16.6ms</span>
+                                <span class="metric-label">Frame Budget</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-feature="animation">
+                    <div class="feature-number">02</div>
+                    <div class="feature-content">
+                        <h3>ADVANCED ANIMATION SYSTEM</h3>
+                        <p>Sprite sheet animations with frame-by-frame control. Tween engine for smooth property interpolation. Timeline sequencing.</p>
+                        <div class="feature-metrics">
+                            <div class="metric">
+                                <span class="metric-value">UNLIMITED</span>
+                                <span class="metric-label">Animations</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">EASING</span>
+                                <span class="metric-label">30+ Functions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-feature="plugins">
+                    <div class="feature-number">03</div>
+                    <div class="feature-content">
+                        <h3>EXTENSIBLE PLUGIN SYSTEM</h3>
+                        <p>Modular architecture with plugin support. Extend core functionality, create custom game objects, and share with community.</p>
+                        <div class="feature-metrics">
+                            <div class="metric">
+                                <span class="metric-value">100+</span>
+                                <span class="metric-label">Community Plugins</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">OPEN</span>
+                                <span class="metric-label">Source API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card" data-feature="mobile">
+                    <div class="feature-number">04</div>
+                    <div class="feature-content">
+                        <h3>MOBILE-OPTIMIZED</h3>
+                        <p>Touch gesture support, device orientation handling, and responsive scaling. Deploy once, play everywhere.</p>
+                        <div class="feature-metrics">
+                            <div class="metric">
+                                <span class="metric-value">iOS + ANDROID</span>
+                                <span class="metric-label">Native Feel</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">AUTO</span>
+                                <span class="metric-label">Resolution Scaling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <div class="cta-content">
+                    <h2 class="cta-title">START_BUILDING</h2>
+                    <p class="cta-subtitle">Deploy your first game in minutes. Production-ready framework with zero configuration.</p>
+                    <div class="cta-actions">
+                        <button class="btn-primary btn-large">
+                            <span class="btn-icon">⚡</span>
+                            DOWNLOAD FRAMEWORK
+                        </button>
+                        <button class="btn-secondary btn-large">
+                            <span class="btn-icon">◈</span>
+                            EXPLORE EXAMPLES
+                        </button>
+                    </div>
+                </div>
+                <div class="cta-terminal">
+                    <div class="terminal-header">
+                        <span>$ INSTALLATION</span>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">npm install phaser</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-output">✓ phaser@3.80.0 installed</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">npm run dev</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-output terminal-cursor">▮</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>FRAMEWORK</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>COMMUNITY</h4>
+                    <ul>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Forum</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>RESOURCES</h4>
+                    <ul>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Plugins</a></li>
+                        <li><a href="#">Assets</a></li>
+                        <li><a href="#">Showcase</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">MIT License</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo">PHASER_3 // GAME_ENGINE</div>
+                <div class="footer-copyright">© 2025 PHASER FRAMEWORK // HIGH-PERFORMANCE BROWSER GAMING</div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
