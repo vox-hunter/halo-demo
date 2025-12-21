@@ -3,298 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Airy - Vanilla Blossom Air Freshener</title>
+    <title>Airy - Vanilla Orchid Air Freshener</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Floating Petals Background -->
-    <div class="petals-container" id="petalsContainer">
+    <div class="petals-container">
         <div class="petal petal-1"></div>
         <div class="petal petal-2"></div>
         <div class="petal petal-3"></div>
         <div class="petal petal-4"></div>
         <div class="petal petal-5"></div>
         <div class="petal petal-6"></div>
+        <div class="petal petal-7"></div>
+        <div class="petal petal-8"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="nav" id="mainNav">
-        <div class="nav-logo">
-            <span class="logo-text">Airy</span>
-        </div>
-        <div class="nav-links">
-            <a href="#product" class="nav-link">Product</a>
-            <a href="#story" class="nav-link">Story</a>
-            <a href="#scent" class="nav-link">Scent</a>
-            <a href="#cart" class="nav-link cta-link">Shop Now</a>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="brand">Airy</div>
+            <ul class="nav-menu">
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-background-text">
-            <span class="bg-text">Airy</span>
-        </div>
-        
+    <section class="hero">
+        <div class="hero-background-text">Airy</div>
         <div class="hero-content">
             <div class="hero-left">
                 <h1 class="hero-title">
-                    Vanilla<br>
-                    <span class="title-accent">Blossom</span>
+                    <span class="title-line">Vanilla</span>
+                    <span class="title-line">Orchid</span>
                 </h1>
-                <p class="hero-subtitle">A botanical symphony of warmth and freshness</p>
+                <p class="hero-subtitle">A scented bloom that breathes life into space</p>
                 
-                <div class="hero-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Scent Profile</span>
-                        <span class="meta-value">Creamy Vanilla · Soft Orchid</span>
+                <div class="product-info">
+                    <div class="info-card">
+                        <div class="info-label">Scent Family</div>
+                        <div class="info-value">Warm Floral</div>
                     </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Duration</span>
-                        <span class="meta-value">60 Days Continuous</span>
+                    <div class="info-card">
+                        <div class="info-label">Duration</div>
+                        <div class="info-value">90 Days</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">Intensity</div>
+                        <div class="info-value">Medium</div>
                     </div>
                 </div>
 
-                <button class="cta-button" id="ctaButton">
-                    <span class="button-text">Add to Sanctuary</span>
-                    <span class="button-price">$28.00</span>
-                    <div class="button-ripple"></div>
+                <button class="cta-button">
+                    <span>Add to Cart</span>
+                    <span class="price">$42</span>
                 </button>
             </div>
 
-            <!-- 3D Product Visualization -->
-            <div class="hero-product" id="heroProduct">
-                <div class="product-glow"></div>
-                <div class="product-container">
-                    <div class="flower-shape">
-                        <div class="petal-layer layer-1"></div>
-                        <div class="petal-layer layer-2"></div>
-                        <div class="petal-layer layer-3"></div>
-                        <div class="center-glass"></div>
-                        <div class="inner-glow"></div>
+            <div class="hero-right">
+                <div class="product-showcase">
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1612608120714-4ad49e78bf46?w=1080&q=80" 
+                             alt="Vanilla Orchid Air Freshener" 
+                             class="product-image">
+                        <div class="glow-effect"></div>
+                        <div class="ripple-effect"></div>
                     </div>
-                    <div class="scent-ripple" id="scentRipple"></div>
-                </div>
-                
-                <!-- Floating Info Cards -->
-                <div class="info-card card-1" style="--delay: 0.2s">
-                    <span class="card-label">Handcrafted</span>
-                    <span class="card-value">Premium Glass</span>
-                </div>
-                <div class="info-card card-2" style="--delay: 0.4s">
-                    <span class="card-label">Natural</span>
-                    <span class="card-value">No Synthetics</span>
-                </div>
-                <div class="info-card card-3" style="--delay: 0.6s">
-                    <span class="card-label">Sustainable</span>
-                    <span class="card-value">Eco-Friendly</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Story Section -->
-    <section class="story" id="story">
-        <div class="story-grid">
-            <div class="story-text">
-                <h2 class="section-title">The Scented<br>Greenhouse</h2>
-                <p class="story-description">
-                    Inspired by sun-drenched botanical gardens at dawn, each Airy 
-                    freshener is a handcrafted bloom that transforms your space into 
-                    a living sanctuary. Our vanilla orchid essence is captured at the 
-                    peak of morning light, when the petals release their most delicate 
-                    fragrance.
-                </p>
-                <div class="story-features">
-                    <div class="feature">
-                        <div class="feature-icon">🌸</div>
-                        <div class="feature-text">
-                            <h3>Botanical Essence</h3>
-                            <p>Pure vanilla extracted from Madagascar orchids</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">💧</div>
-                        <div class="feature-text">
-                            <h3>Morning Dew</h3>
-                            <p>Soft, breathable freshness that lingers naturally</p>
-                        </div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✨</div>
-                        <div class="feature-text">
-                            <h3>Frosted Glass</h3>
-                            <p>Semi-translucent petals with warm inner glow</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Features Section -->
+    <section class="features" id="collection">
+        <div class="features-container">
+            <h2 class="section-title">The Scented Bloom Experience</h2>
             
-            <div class="story-visual">
-                <div class="visual-card">
-                    <div class="card-texture"></div>
-                    <span class="visual-label">Artisan Crafted</span>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1598797369193-f1978e1a373c?w=400&q=80" alt="Natural Essence">
+                    </div>
+                    <h3 class="feature-title">Natural Essence</h3>
+                    <p class="feature-description">Hand-selected vanilla orchid extracts create an authentic, warm fragrance that evokes memories of botanical gardens at dawn.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1616943820171-91ae3d4fed3c?w=400&q=80" alt="Artisan Design">
+                    </div>
+                    <h3 class="feature-title">Artisan Design</h3>
+                    <p class="feature-description">Each piece is crafted from frosted petal glass, allowing light to pass through while diffusing a gentle, ambient glow.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <img src="https://images.unsplash.com/photo-1659111377743-8302029e4029?w=400&q=80" alt="Sustainable Beauty">
+                    </div>
+                    <h3 class="feature-title">Sustainable Beauty</h3>
+                    <p class="feature-description">Eco-conscious materials and refillable design ensure your space remains fresh while honoring the environment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Scent Profile Section -->
-    <section class="scent-profile" id="scent">
-        <div class="scent-header">
-            <h2 class="section-title center">Fragrance<br>Journey</h2>
-            <p class="section-subtitle">A three-act olfactory experience</p>
-        </div>
-
-        <div class="scent-notes">
-            <div class="note-card" style="--note-delay: 0s">
-                <div class="note-number">01</div>
-                <h3 class="note-title">Top Notes</h3>
-                <p class="note-description">Fresh cream · Soft pear · Green tea</p>
-                <div class="note-intensity">
-                    <span class="intensity-bar" style="--intensity: 85%"></span>
+    <!-- Composition Section -->
+    <section class="composition" id="about">
+        <div class="composition-container">
+            <div class="composition-left">
+                <div class="composition-image">
+                    <img src="https://images.unsplash.com/photo-1573350725645-f6f9af12d91b?w=800&q=80" alt="Vanilla Composition">
                 </div>
             </div>
-
-            <div class="note-card" style="--note-delay: 0.2s">
-                <div class="note-number">02</div>
-                <h3 class="note-title">Heart Notes</h3>
-                <p class="note-description">Vanilla orchid · Honeysuckle · White musk</p>
-                <div class="note-intensity">
-                    <span class="intensity-bar" style="--intensity: 100%"></span>
-                </div>
-            </div>
-
-            <div class="note-card" style="--note-delay: 0.4s">
-                <div class="note-number">03</div>
-                <h3 class="note-title">Base Notes</h3>
-                <p class="note-description">Toasted pod · Sandalwood · Soft amber</p>
-                <div class="note-intensity">
-                    <span class="intensity-bar" style="--intensity: 70%"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Details Section -->
-    <section class="details">
-        <div class="details-container">
-            <div class="details-specs">
-                <h2 class="section-title">Technical<br>Specifications</h2>
+            <div class="composition-right">
+                <h2 class="composition-title">Crafted with Intention</h2>
+                <p class="composition-text">
+                    Our Vanilla Orchid is more than an air freshener—it's a sensory journey. 
+                    The frosted glass exterior mimics the delicate petals of orchids found in misty tropical forests, 
+                    while the warm vanilla core creates an inviting atmosphere that transforms any room into a sanctuary.
+                </p>
                 
-                <div class="spec-list">
-                    <div class="spec-item">
-                        <span class="spec-label">Dimensions</span>
-                        <span class="spec-value">4.5" diameter × 2.8" height</span>
+                <div class="composition-notes">
+                    <div class="note">
+                        <div class="note-label">Top Note</div>
+                        <div class="note-value">Soft Vanilla Bean</div>
                     </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Material</span>
-                        <span class="spec-value">Frosted borosilicate glass</span>
+                    <div class="note">
+                        <div class="note-label">Heart Note</div>
+                        <div class="note-value">White Orchid Petals</div>
                     </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Fragrance</span>
-                        <span class="spec-value">Natural essential oils</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Coverage</span>
-                        <span class="spec-value">Up to 450 sq ft</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Lifespan</span>
-                        <span class="spec-value">60 days active diffusion</span>
-                    </div>
-                    <div class="spec-item">
-                        <span class="spec-label">Origin</span>
-                        <span class="spec-value">Handcrafted in Copenhagen</span>
+                    <div class="note">
+                        <div class="note-label">Base Note</div>
+                        <div class="note-value">Warm Amber Musk</div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="details-purchase">
-                <div class="purchase-card">
-                    <h3 class="purchase-title">Vanilla Blossom</h3>
-                    <div class="purchase-price">
-                        <span class="price-amount">$28.00</span>
-                        <span class="price-note">Free shipping over $50</span>
-                    </div>
-                    
-                    <div class="purchase-options">
-                        <div class="option-group">
-                            <label class="option-label">Quantity</label>
-                            <div class="quantity-selector">
-                                <button class="qty-btn" id="qtyMinus">−</button>
-                                <span class="qty-value" id="qtyValue">1</span>
-                                <button class="qty-btn" id="qtyPlus">+</button>
-                            </div>
-                        </div>
-                        
-                        <div class="option-group">
-                            <label class="option-label">Subscribe & Save 15%</label>
-                            <div class="subscribe-options">
-                                <button class="subscribe-btn active" data-frequency="one-time">One-Time</button>
-                                <button class="subscribe-btn" data-frequency="monthly">Monthly</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="add-to-cart-btn" id="addToCart">
-                        <span>Add to Cart</span>
-                    </button>
-
-                    <div class="trust-badges">
-                        <span class="badge">✓ 30-Day Returns</span>
-                        <span class="badge">✓ Secure Checkout</span>
-                        <span class="badge">✓ Eco Certified</span>
-                    </div>
-                </div>
-            </div>
+    <!-- CTA Section -->
+    <section class="final-cta" id="contact">
+        <div class="final-cta-content">
+            <h2 class="final-cta-title">Transform Your Space</h2>
+            <p class="final-cta-subtitle">Join thousands who have discovered the art of ambient scent</p>
+            <button class="cta-button cta-button-large">
+                <span>Shop Vanilla Orchid</span>
+                <span class="price">$42</span>
+            </button>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <span class="footer-logo">Airy</span>
-                <p class="footer-tagline">Transforming spaces into sanctuaries</p>
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="brand">Airy</div>
+                <p class="footer-tagline">Breathing life into every space</p>
             </div>
-            
-            <div class="footer-links">
-                <div class="link-group">
-                    <h4>Shop</h4>
-                    <a href="#">All Products</a>
-                    <a href="#">Gift Sets</a>
-                    <a href="#">Subscriptions</a>
-                </div>
-                <div class="link-group">
-                    <h4>About</h4>
-                    <a href="#">Our Story</a>
-                    <a href="#">Sustainability</a>
-                    <a href="#">Press</a>
-                </div>
-                <div class="link-group">
-                    <h4>Support</h4>
-                    <a href="#">Contact</a>
-                    <a href="#">Shipping</a>
-                    <a href="#">Returns</a>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="#collection">Collection</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#">Privacy</a>
                 </div>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <p>&copy; 2025 Airy. All rights reserved.</p>
-            <div class="footer-legal">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Accessibility</a>
-            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

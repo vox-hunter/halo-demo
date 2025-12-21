@@ -1,486 +1,383 @@
-// ===================================
-// AIRY - Interactive Experience
-// ===================================
+// ===== GSAP INITIALIZATION =====
+gsap.registerPlugin(ScrollTrigger);
 
-// Global State
-let quantity = 1;
-let scrollPosition = 0;
-
-// Initialize on DOM Load
-document.addEventListener('DOMContentLoaded', () => {
-    initNavigation();
-    initHero();
-    initParallax();
-    initProductInteractions();
-    initPurchaseControls();
-    initScrollAnimations();
-});
-
-// ===================================
-// Navigation
-// ===================================
-function initNavigation() {
-    const nav = document.getElementById('mainNav');
+// ===== PARALLAX PETALS ANIMATION =====
+const initParallaxPetals = () => {
+    const petals = document.querySelectorAll('.petal');
     
-    window.addEventListener('scroll', () => {
-        scrollPosition = window.scrollY;
+    petals.forEach((petal, index) => {
+        const speed = 0.3 + (index * 0.15);
+        const rotation = Math.random() * 360;
         
-        if (scrollPosition > 100) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    });
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+        // Initial animation
+        gsap.from(petal, {
+            opacity: 0,
+            scale: 0,
+            rotation: rotation,
+            duration: 2,
+            delay: index * 0.2,
+            ease: 'power2.out'
+        });
+        
+        // Parallax scroll effect
+        gsap.to(petal, {
+            y: () => window.innerHeight * speed,
+            rotation: rotation + 180,
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: true
             }
         });
+        
+        // Floating animation
+        gsap.to(petal, {
+            x: '+=30',
+            y: '+=20',
+            duration: 3 + (index * 0.5),
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
     });
-}
+};
 
-// ===================================
-// Hero Section
-// ===================================
-function initHero() {
-    const ctaButton = document.getElementById('ctaButton');
+// ===== HERO SECTION ANIMATIONS =====
+const initHeroAnimations = () => {
+    const timeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
     
-    if (ctaButton) {
-        ctaButton.addEventListener('click', () => {
-            // Scroll to purchase section
-            const purchaseSection = document.querySelector('.details');
-            if (purchaseSection) {
-                purchaseSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'center'
+    // Animate title lines
+    timeline.to('.title-line', {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        stagger: 0.2
+    });
+    
+    // Animate subtitle
+    timeline.to('.hero-subtitle', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8
+    }, '-=0.6');
+    
+    // Animate product info cards
+    timeline.to('.product-info', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8
+    }, '-=0.4');
+    
+    // Animate CTA button
+    timeline.to('.cta-button', {
+        opacity: 1,
+        y: 0,
+        duration: 0.8
+    }, '-=0.4');
+    
+    // Animate product image
+    timeline.to('.product-image-container', {
+        opacity: 1,
+        scale: 1,
+        duration: 1.2,
+        ease: 'back.out(1.2)'
+    }, '-=1');
+};
+
+// ===== PRODUCT IMAGE HOVER RIPPLE EFFECT =====
+const initRippleEffect = () => {
+    const productContainer = document.querySelector('.product-image-container');
+    const ripple = document.querySelector('.ripple-effect');
+    
+    if (!productContainer || !ripple) return;
+    
+    productContainer.addEventListener('mouseenter', () => {
+        gsap.fromTo(ripple,
+            { opacity: 0, scale: 0.5 },
+            {
+                opacity: 1,
+                scale: 1.5,
+                duration: 1.2,
+                ease: 'power2.out'
+            }
+        );
+    });
+    
+    productContainer.addEventListener('mouseleave', () => {
+        gsap.to(ripple, {
+            opacity: 0,
+            scale: 0.5,
+            duration: 0.6,
+            ease: 'power2.in'
+        });
+    });
+};
+
+// ===== FEATURE CARDS SCROLL ANIMATION =====
+const initFeatureCards = () => {
+    const cards = document.querySelectorAll('.feature-card');
+    
+    cards.forEach((card, index) => {
+        gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'top 50%',
+                toggleActions: 'play none none reverse'
+            },
+            delay: index * 0.15
+        });
+    });
+};
+
+// ===== COMPOSITION SECTION ANIMATIONS =====
+const initCompositionAnimations = () => {
+    const compositionImage = document.querySelector('.composition-image');
+    const compositionRight = document.querySelector('.composition-right');
+    
+    if (compositionImage) {
+        gsap.to(compositionImage, {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            scrollTrigger: {
+                trigger: compositionImage,
+                start: 'top 75%',
+                end: 'top 40%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    }
+    
+    if (compositionRight) {
+        gsap.to(compositionRight, {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            scrollTrigger: {
+                trigger: compositionRight,
+                start: 'top 75%',
+                end: 'top 40%',
+                toggleActions: 'play none none reverse'
+            },
+            delay: 0.3
+        });
+    }
+};
+
+// ===== FINAL CTA ANIMATION =====
+const initFinalCTA = () => {
+    const ctaContent = document.querySelector('.final-cta-content');
+    
+    if (ctaContent) {
+        gsap.to(ctaContent, {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            scrollTrigger: {
+                trigger: ctaContent,
+                start: 'top 80%',
+                end: 'top 50%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    }
+};
+
+// ===== PARALLAX BACKGROUND TEXT =====
+const initParallaxBackground = () => {
+    const bgText = document.querySelector('.hero-background-text');
+    
+    if (bgText) {
+        gsap.to(bgText, {
+            y: () => window.innerHeight * 0.3,
+            opacity: 0.5,
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    }
+};
+
+// ===== SMOOTH SCROLL FOR NAVIGATION =====
+const initSmoothScroll = () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: {
+                        y: target,
+                        offsetY: 80
+                    },
+                    ease: 'power3.inOut'
                 });
             }
-            
-            // Add ripple effect
-            createRipple(ctaButton);
         });
-    }
-}
+    });
+};
 
-function createRipple(button) {
-    const ripple = document.createElement('span');
-    ripple.classList.add('ripple-effect');
+// ===== NAVBAR SCROLL EFFECT =====
+const initNavbarScroll = () => {
+    const nav = document.querySelector('.nav');
     
-    const rect = button.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
-    ripple.style.width = ripple.style.height = size + 'px';
-    ripple.style.left = (rect.width / 2 - size / 2) + 'px';
-    ripple.style.top = (rect.height / 2 - size / 2) + 'px';
-    
-    button.appendChild(ripple);
-    
-    setTimeout(() => {
-        ripple.remove();
-    }, 600);
-}
-
-// ===================================
-// Parallax Effects
-// ===================================
-function initParallax() {
-    const petals = document.querySelectorAll('.petal');
-    const heroProduct = document.getElementById('heroProduct');
-    const bgText = document.querySelector('.bg-text');
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const windowHeight = window.innerHeight;
-        
-        // Parallax background petals
-        petals.forEach((petal, index) => {
-            const speed = (index + 1) * 0.1;
-            const yPos = scrolled * speed;
-            petal.style.transform = `translateY(${yPos}px)`;
-        });
-        
-        // Hero product parallax
-        if (heroProduct) {
-            const heroRect = heroProduct.getBoundingClientRect();
-            if (heroRect.top < windowHeight && heroRect.bottom > 0) {
-                const scrollPercent = (windowHeight - heroRect.top) / windowHeight;
-                const translateY = scrollPercent * 50;
-                const rotate = scrollPercent * 10;
-                heroProduct.style.transform = `translateY(${translateY}px) rotate(${rotate}deg)`;
-            }
-        }
-        
-        // Background text parallax
-        if (bgText) {
-            const bgScrollSpeed = 0.3;
-            bgText.style.transform = `translate(-50%, calc(-50% + ${scrolled * bgScrollSpeed}px))`;
+    ScrollTrigger.create({
+        start: 'top -80',
+        end: 99999,
+        toggleClass: {
+            className: 'nav-scrolled',
+            targets: nav
         }
     });
-}
+};
 
-// ===================================
-// Product Interactions
-// ===================================
-function initProductInteractions() {
-    const productContainer = document.querySelector('.product-container');
-    const scentRipple = document.getElementById('scentRipple');
+// ===== INFO CARDS HOVER EFFECT =====
+const initInfoCardsHover = () => {
     const infoCards = document.querySelectorAll('.info-card');
     
-    if (productContainer && scentRipple) {
-        // Hover effect - create scent ripple
-        productContainer.addEventListener('mouseenter', () => {
-            triggerScentRipple();
-        });
-        
-        // Track mouse movement for 3D tilt effect
-        productContainer.addEventListener('mousemove', (e) => {
-            const rect = productContainer.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            productContainer.style.transform = `
-                perspective(1000px) 
-                rotateX(${rotateX}deg) 
-                rotateY(${rotateY}deg)
-                translateY(-20px)
-            `;
-        });
-        
-        productContainer.addEventListener('mouseleave', () => {
-            productContainer.style.transform = '';
-        });
-    }
-    
-    // Info cards interactive
     infoCards.forEach(card => {
         card.addEventListener('mouseenter', () => {
-            card.style.animationPlayState = 'paused';
+            gsap.to(card, {
+                scale: 1.05,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
         
         card.addEventListener('mouseleave', () => {
-            card.style.animationPlayState = 'running';
+            gsap.to(card, {
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
     });
-}
+};
 
-function triggerScentRipple() {
-    const scentRipple = document.getElementById('scentRipple');
-    if (scentRipple) {
-        scentRipple.classList.remove('active');
-        void scentRipple.offsetWidth; // Trigger reflow
-        scentRipple.classList.add('active');
-        
-        setTimeout(() => {
-            scentRipple.classList.remove('active');
-        }, 2000);
-    }
-}
-
-// ===================================
-// Purchase Controls
-// ===================================
-function initPurchaseControls() {
-    const qtyMinus = document.getElementById('qtyMinus');
-    const qtyPlus = document.getElementById('qtyPlus');
-    const qtyValue = document.getElementById('qtyValue');
-    const subscribeBtns = document.querySelectorAll('.subscribe-btn');
-    const addToCartBtn = document.getElementById('addToCart');
+// ===== CTA BUTTON HOVER EFFECT =====
+const initCTAHover = () => {
+    const ctaButtons = document.querySelectorAll('.cta-button');
     
-    // Quantity controls
-    if (qtyMinus && qtyPlus && qtyValue) {
-        qtyMinus.addEventListener('click', () => {
-            if (quantity > 1) {
-                quantity--;
-                qtyValue.textContent = quantity;
-                animateQuantity(qtyValue);
-            }
+    ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            gsap.to(button, {
+                scale: 1.05,
+                boxShadow: '0 15px 50px rgba(74, 93, 35, 0.4)',
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
         
-        qtyPlus.addEventListener('click', () => {
-            if (quantity < 10) {
-                quantity++;
-                qtyValue.textContent = quantity;
-                animateQuantity(qtyValue);
-            }
+        button.addEventListener('mouseleave', () => {
+            gsap.to(button, {
+                scale: 1,
+                boxShadow: '0 10px 40px rgba(74, 93, 35, 0.3)',
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
-    }
-    
-    // Subscribe buttons
-    subscribeBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            subscribeBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Update pricing if subscription selected
-            updatePricing(btn.dataset.frequency);
-        });
-    });
-    
-    // Add to cart
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', () => {
-            addToCartAnimation(addToCartBtn);
-        });
-    }
-}
-
-function animateQuantity(element) {
-    element.style.transform = 'scale(1.3)';
-    setTimeout(() => {
-        element.style.transform = 'scale(1)';
-    }, 200);
-}
-
-function updatePricing(frequency) {
-    const priceAmount = document.querySelector('.price-amount');
-    if (priceAmount) {
-        if (frequency === 'monthly') {
-            // 15% discount
-            priceAmount.textContent = '$23.80';
-            priceAmount.style.color = 'var(--deep-moss)';
-        } else {
-            priceAmount.textContent = '$28.00';
-        }
-    }
-}
-
-function addToCartAnimation(button) {
-    // Change button state
-    const originalText = button.innerHTML;
-    button.innerHTML = '<span>✓ Added to Cart</span>';
-    button.style.background = 'var(--toasted-pod)';
-    
-    // Create floating notification
-    createFloatingNotification();
-    
-    // Reset after delay
-    setTimeout(() => {
-        button.innerHTML = originalText;
-        button.style.background = 'var(--deep-moss)';
-    }, 2000);
-}
-
-function createFloatingNotification() {
-    const notification = document.createElement('div');
-    notification.classList.add('cart-notification');
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">🌸</span>
-            <span class="notification-text">Added to your sanctuary</span>
-        </div>
-    `;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 30px;
-        padding: 1rem 2rem;
-        background: rgba(74, 93, 35, 0.95);
-        color: var(--vanilla-cream);
-        border-radius: 50px;
-        font-family: var(--font-sans);
-        font-size: 1rem;
-        z-index: 10000;
-        animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-        box-shadow: 0 10px 40px rgba(74, 93, 35, 0.3);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOutRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards';
-        setTimeout(() => {
-            notification.remove();
-        }, 400);
-    }, 2500);
-}
-
-// ===================================
-// Scroll Animations
-// ===================================
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for fade-in animation
-    const animatedElements = document.querySelectorAll(`
-        .story-text,
-        .story-visual,
-        .note-card,
-        .spec-item,
-        .purchase-card
-    `);
-    
-    animatedElements.forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// ===================================
-// Dynamic Styles (Animations)
-// ===================================
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-    
-    .notification-content {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .notification-icon {
-        font-size: 1.5rem;
-    }
-    
-    .qty-value {
-        transition: transform 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-    
-    .ripple-effect {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(233, 255, 219, 0.5);
-        transform: scale(0);
-        animation: rippleAnimation 0.6s ease-out;
-        pointer-events: none;
-    }
-    
-    @keyframes rippleAnimation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
-
-// ===================================
-// Performance Optimization
-// ===================================
-let ticking = false;
-
-window.addEventListener('scroll', () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            handleScrollEffects();
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
-
-function handleScrollEffects() {
-    // Batch scroll-related calculations here for performance
-    scrollPosition = window.scrollY;
-}
-
-// ===================================
-// Easter Egg: Click on flower center
-// ===================================
-const centerGlass = document.querySelector('.center-glass');
-if (centerGlass) {
-    let clickCount = 0;
-    centerGlass.addEventListener('click', () => {
-        clickCount++;
-        triggerScentRipple();
         
-        if (clickCount === 5) {
-            // Special effect after 5 clicks
-            document.body.style.animation = 'vanillaBloom 2s ease-in-out';
-            
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes vanillaBloom {
-                    0%, 100% { filter: hue-rotate(0deg); }
-                    50% { filter: hue-rotate(30deg) brightness(1.1); }
+        button.addEventListener('click', () => {
+            gsap.fromTo(button,
+                { scale: 0.95 },
+                {
+                    scale: 1.05,
+                    duration: 0.2,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'power2.inOut'
                 }
-            `;
-            document.head.appendChild(style);
-            
-            setTimeout(() => {
-                document.body.style.animation = '';
-            }, 2000);
-            
-            clickCount = 0;
+            );
+        });
+    });
+};
+
+// ===== PRODUCT IMAGE PARALLAX =====
+const initProductParallax = () => {
+    const productImage = document.querySelector('.product-image');
+    
+    if (productImage) {
+        gsap.to(productImage, {
+            y: () => -100,
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+    }
+};
+
+// ===== INITIALIZE ALL ANIMATIONS =====
+const init = () => {
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+        return;
+    }
+    
+    // Initialize all animation modules
+    initParallaxPetals();
+    initHeroAnimations();
+    initRippleEffect();
+    initFeatureCards();
+    initCompositionAnimations();
+    initFinalCTA();
+    initParallaxBackground();
+    initSmoothScroll();
+    initNavbarScroll();
+    initInfoCardsHover();
+    initCTAHover();
+    initProductParallax();
+    
+    // Refresh ScrollTrigger after all animations are set up
+    ScrollTrigger.refresh();
+};
+
+// Start initialization
+init();
+
+// ===== SCROLL PROGRESS INDICATOR (OPTIONAL) =====
+const initScrollProgress = () => {
+    gsap.to('progress', {
+        value: 100,
+        ease: 'none',
+        scrollTrigger: {
+            trigger: 'body',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.3
         }
     });
+};
+
+// ===== PERFORMANCE OPTIMIZATION =====
+// Reduce animations on mobile for better performance
+const isMobile = window.innerWidth < 768;
+if (isMobile) {
+    // Disable some heavy animations on mobile
+    gsap.globalTimeline.timeScale(1.5); // Speed up animations
 }
 
-// ===================================
-// Accessibility Enhancements
-// ===================================
-// Keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-nav');
-    }
+// ===== WINDOW RESIZE HANDLER =====
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 250);
 });
 
-document.addEventListener('mousedown', () => {
-    document.body.classList.remove('keyboard-nav');
-});
-
-// Add focus styles for keyboard navigation
-const keyboardStyle = document.createElement('style');
-keyboardStyle.textContent = `
-    .keyboard-nav *:focus {
-        outline: 3px solid var(--deep-moss);
-        outline-offset: 3px;
-    }
-`;
-document.head.appendChild(keyboardStyle);
-
-// ===================================
-// Console Easter Egg
-// ===================================
-console.log('%c🌸 Airy - Vanilla Blossom', 'font-size: 24px; font-family: serif; color: #4A5D23;');
-console.log('%cTransforming spaces into sanctuaries', 'font-size: 14px; color: #D2B48C;');
-console.log('%c\nBuilt with love and vanilla essence ✨', 'font-style: italic; color: #4A5D23;');
+// ===== CONSOLE LOG =====
+console.log('%c Airy - Vanilla Orchid Landing Page ', 'background: #4A5D23; color: #FDF5E6; padding: 10px; font-size: 16px; font-weight: bold;');
+console.log('%c Design by Airy | Powered by GSAP ', 'background: #E9FFDB; color: #4A5D23; padding: 5px; font-size: 12px;');
