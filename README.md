@@ -1,4 +1,4 @@
-# Showcase of Halo: The Most Powerful AI LWeb app Builder
+# Showcase of Halo: The Most Powerful AI Web app Builder
 
 This repository demonstrates the capabilities of Halo, an AI-powered website builder. Below are examples of landing pages created with a single prompt and no iterations. Full stack agentic framework are in development.
 
