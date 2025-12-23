@@ -32,6 +32,16 @@ Release halo.dev platform
 - 2 iteration prompts (summary: make the 3d model follow the user, fix annotations)
 - Model used: Claude Opus 4.5 (128k context window)
 
+### 3. Audi.com Redesign
+**Live Demo:** [audi.com](https://vox-hunter.github.io/halo-demo/audi-home)
+
+**Prompt:**
+> "redesign audi.com landing page,  the landing page must use all the assets in audi.com
+
+**Settings:**
+- External tools (stock images, icons) were **enabled**.
+- The agent used firecrawl to scrape audi.com for assets.
+
 ## Comparison: Halo vs Lovable.dev
 
 To provide a comparison, we ran the same prompts on Lovable.dev.

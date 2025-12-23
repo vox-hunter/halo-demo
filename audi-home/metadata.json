@@ -1,0 +1,29 @@
+{
+  "url": "https://www.audi.com/",
+  "scrapedAt": "2025-12-23T00:00:00Z",
+  "pageTitle": "Up-to-Date Thanks to over-the-air",
+  "assets": [
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:65fc683d-3b6c-44e6-810c-bf70b4a54c74/as/1080x1920_MF_2024_1010_AUDI_EB_00947.jpg","filename":"1080x1920_MF_2024_1010_AUDI_EB_00947.jpg","type":"editorial-image","suggestedPath":"assets/images/1080x1920_MF_2024_1010_AUDI_EB_00947.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:9967a0a0-2209-4ab1-90f2-72c8659e2c88/as/1920x1080_MST_A234751_02.jpg","filename":"1920x1080_MST_A234751_02.jpg","type":"section-image","suggestedPath":"assets/images/1920x1080_MST_A234751_02.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:2f73a4dc-717b-4569-ab06-6f579415023c/as/1920x1080_MF_2024_0905_AUDI_EB_1544.jpg","filename":"1920x1080_MF_2024_0905_AUDI_EB_1544.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_MF_2024_0905_AUDI_EB_1544.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:fb23f973-568e-435c-bfe7-1b16eb0a254a/as/Audi_TRN_OOH_v09_OF-L-3.jpg","filename":"Audi_TRN_OOH_v09_OF-L-3.jpg","type":"section-image","suggestedPath":"assets/images/Audi_TRN_OOH_v09_OF-L-3.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:73ae01af-2dfc-4db8-af12-78c3e02b4ece/as/1920x1920_Innovation_A230547_01.jpg?preferwebp=true","filename":"1920x1920_Innovation_A230547_01.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1920_Innovation_A230547_01.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:7fd04c59-35be-4ea4-b302-f95b09e8c483/as/1440x1440_A251206_large.jpg?preferwebp=true","filename":"1440x1440_A251206_large.jpg","type":"section-image","suggestedPath":"assets/images/1440x1440_A251206_large.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:9bd6290d-ed8e-4384-8c42-46fdf263070e/as/1920x1080_A250752_large.jpg?preferwebp=true","filename":"1920x1080_A250752_large.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_A250752_large.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:b9638bb1-ade6-49f4-9298-690ccb579f2e/as/1920x1080_A251204_large.jpg?preferwebp=true","filename":"1920x1080_A251204_large.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_A251204_large.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:f12a56d2-7494-4408-9471-5c731c84cd04/as/1920x1080_employees-Ehrensache_01.jpg?preferwebp=true","filename":"1920x1080_employees-Ehrensache_01.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_employees-Ehrensache_01.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:6b1a9c0f-07f3-4f5e-a1d3-08682f47c7de/as/1920x1080_MST_IK_Landingpage_CoverImage_1065_01.jpg?preferwebp=true","filename":"1920x1080_MST_IK_Landingpage_CoverImage_1065_01.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_MST_IK_Landingpage_CoverImage_1065_01.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:4b730b3c-e6c3-4d0d-8204-81a468a18130/as/1920x1080_Karriere_Spirit_A224634_large_01.jpg?preferwebp=true","filename":"1920x1080_Karriere_Spirit_A224634_large_01.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_Karriere_Spirit_A224634_large_01.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:360e3ca6-ba06-4878-a67e-9a09c57be925/as/A251983_large.png?width=342","filename":"A251983_large.png","type":"press-image","suggestedPath":"assets/images/A251983_large.png"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:8898faab-6ed4-4ed8-b0d6-afc0be4705ac/as/A251980_large.jpg?width=342","filename":"A251980_large.jpg","type":"press-image","suggestedPath":"assets/images/A251980_large.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:2d7505a9-3797-4421-80b2-6f2794958c83/as/1920x1080_A250600_large.jpg?width=342","filename":"1920x1080_A250600_large.jpg","type":"press-image","suggestedPath":"assets/images/1920x1080_A250600_large.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:9d91f6a8-9d99-4895-9b03-c12557307800/as/1920x1080_q6_2024_7079-38349128-(original)%20(1).jpg","filename":"1920x1080_q6_2024_7079.jpg","type":"editorial-image","suggestedPath":"assets/images/1920x1080_q6_2024_7079.jpg"},
+    {"url":"https://emea-dam.audi.com/adobe/assets/urn:aaid:aem:2e5b5276-5437-4566-9179-1d709f0dce13/as/1920x1080_Nachhaltigkeit_Report-2024_A243172_large_01.jpg?preferwebp=true","filename":"1920x1080_Nachhaltigkeit_Report-2024_A243172_large_01.jpg","type":"report-image","suggestedPath":"assets/images/1920x1080_Nachhaltigkeit_Report-2024_A243172_large_01.jpg"},
+    {"url":"https://assets.one.audi/assets/fonts/AudiTypeVF.woff2","filename":"AudiTypeVF.woff2","type":"font","suggestedPath":"assets/fonts/AudiTypeVF.woff2"},
+    {"url":"https://assets.audi.com/audi-fonts/1/AudiTypeVF.woff2","filename":"AudiTypeVF.woff2","type":"font","suggestedPath":"assets/fonts/AudiTypeVF.woff2"}
+  ],
+  "logos": [
+    {"type":"inline-svg","selector":"header a svg (Audi rings)","note":"Logo is embedded as inline SVG in page header; extract from header DOM when rebuilding."}
+  ],
+  "notes": "All assets listed are from the landing page only (no crawling of linked pages). Filenames are preserved where present. Use `download_assets.py` to download listed assets programmatically."
+}

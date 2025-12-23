@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi | Vorsprung durch Technik</title>
+    
+    <!-- Audi Type Variable Font -->
+    <style>
+        @font-face {
+            font-family: 'AudiType';
+            src: url('assets/fonts/AudiTypeVF.woff2') format('woff2-variations');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    
+    <!-- GSAP & Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+    
+    <!-- Cursor Spotlight -->
+    <div class="cursor-spotlight"></div>
+    
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
+    
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" aria-label="Audi Home">
+                <!-- Audi Rings SVG -->
+                <svg viewBox="0 0 200 40" class="audi-rings" fill="currentColor">
+                    <g transform="translate(0, 5)">
+                        <circle cx="20" cy="15" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="48" cy="15" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="76" cy="15" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="104" cy="15" r="14" fill="none" stroke="currentColor" stroke-width="2"/>
+                    </g>
+                </svg>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#innovation" class="nav-link" data-text="Innovation">Innovation</a>
+                <a href="#e-mobility" class="nav-link" data-text="E-Mobility">E-Mobility</a>
+                <a href="#formula1" class="nav-link" data-text="Formula 1®">Formula 1®</a>
+                <a href="#sustainability" class="nav-link" data-text="Sustainability">Sustainability</a>
+                <a href="#careers" class="nav-link" data-text="Careers">Careers</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <button class="nav-btn sound-toggle" aria-label="Toggle Sound">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                        <path class="sound-waves" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                    </svg>
+                </button>
+                <button class="nav-btn search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section - The Aerodynamic Void -->
+    <section class="hero" id="hero">
+        <!-- Volumetric Background -->
+        <div class="hero-void">
+            <div class="void-fog"></div>
+            <div class="void-gradient"></div>
+        </div>
+        
+        <!-- Side Typography -->
+        <div class="hero-side-text left">
+            <span class="side-text-content">E-TRON</span>
+        </div>
+        <div class="hero-side-text right">
+            <span class="side-text-content">QUATTRO</span>
+        </div>
+        
+        <!-- 3D Car Container -->
+        <div class="hero-car-container" id="car-container">
+            <!-- Car Image with Lighting Effect -->
+            <div class="car-reveal">
+                <img 
+                    src="assets/images/Audi_TRN_OOH_v09_OF-L-3.jpg" 
+                    alt="Audi Concept C - The Radical Next" 
+                    class="hero-car-image"
+                />
+                <div class="car-lighting-overlay"></div>
+                <div class="scan-line"></div>
+            </div>
+        </div>
+        
+        <!-- Floating Specs -->
+        <div class="floating-specs">
+            <div class="spec-item" data-delay="0.2">
+                <span class="spec-value">
+                    <span class="spec-number" data-target="590">0</span>
+                </span>
+                <span class="spec-unit">HP</span>
+                <span class="spec-label">Peak Power</span>
+            </div>
+            <div class="spec-item" data-delay="0.4">
+                <span class="spec-value">
+                    <span class="spec-number" data-target="3.3">0</span>
+                </span>
+                <span class="spec-unit">SEC</span>
+                <span class="spec-label">0-100 km/h</span>
+            </div>
+            <div class="spec-item" data-delay="0.6">
+                <span class="spec-value">
+                    <span class="spec-number" data-target="500">0</span>
+                </span>
+                <span class="spec-unit">KM</span>
+                <span class="spec-label">WLTP Range</span>
+            </div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <p class="hero-tagline">THE RADICAL NEXT</p>
+            <h1 class="hero-title">
+                <span class="title-line">Strive for</span>
+                <span class="title-line accent">Clarity</span>
+            </h1>
+            <p class="hero-description">
+                The brightest moments in Audi history involved daring leaps of imagination,<br>
+                cutting-edge technology, and groundbreaking design.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#innovation" class="btn-primary">
+                    <span class="btn-text">Discover More</span>
+                    <span class="btn-glow"></span>
+                </a>
+                <a href="#" class="btn-ghost">
+                    <span class="btn-icon">▶</span>
+                    <span class="btn-text">Watch Film</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">SCROLL</span>
+        </div>
+    </section>
+    
+    <!-- Formula 1 Section -->
+    <section class="f1-section" id="formula1">
+        <div class="section-bg">
+            <img 
+                src="assets/images/A251983_large.png" 
+                alt="Audi R26 Concept" 
+                class="section-bg-image parallax" 
+                data-speed="0.3"
+            />
+            <div class="section-bg-overlay"></div>
+        </div>
+        
+        <div class="f1-content">
+            <div class="f1-badge">
+                <span class="badge-text">2026</span>
+            </div>
+            <h2 class="section-title glitch-text" data-text="Formula 1®">
+                <span class="title-word">Formula</span>
+                <span class="title-word accent">1®</span>
+            </h2>
+            <p class="section-subtitle typewriter">
+                Audi will compete in the premier class of motorsport
+            </p>
+            <a href="#" class="btn-primary">
+                <span class="btn-text">Discover More</span>
+                <span class="btn-glow"></span>
+            </a>
+        </div>
+        
+        <!-- Racing Stats -->
+        <div class="racing-stats">
+            <div class="racing-stat">
+                <span class="stat-label">Engine</span>
+                <span class="stat-value">Power Unit</span>
+            </div>
+            <div class="racing-stat">
+                <span class="stat-label">Status</span>
+                <span class="stat-value live">Active Development</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Innovation Grid Section -->
+    <section class="innovation-section" id="innovation">
+        <div class="section-header">
+            <span class="section-eyebrow">EXPLORE</span>
+            <h2 class="section-title-large">
+                <span class="word">Current</span>
+                <span class="word">topics</span>
+                <span class="word">from the</span>
+                <span class="word accent">world of Audi</span>
+            </h2>
+        </div>
+        
+        <div class="innovation-grid">
+            <!-- Card 1 - Vehicle Safety -->
+            <article class="innovation-card large scroll-reveal">
+                <div class="card-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_MST_A234751_02.jpg" 
+                        alt="Vehicle safety at Audi" 
+                        class="card-image"
+                    />
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <span class="card-date">10/22/2025</span>
+                    <h3 class="card-title">Vehicle safety at Audi: When milliseconds count</h3>
+                    <p class="card-excerpt">Find out how Audi is using the latest collision technology – from sensors to crash tests.</p>
+                    <a href="#" class="card-link">
+                        <span>Read more</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Card 2 - Data Science -->
+            <article class="innovation-card scroll-reveal">
+                <div class="card-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_MF_2024_0905_AUDI_EB_1544.jpg" 
+                        alt="Data Science at Audi" 
+                        class="card-image"
+                    />
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <span class="card-date">10/20/2025</span>
+                    <h3 class="card-title">Data Science and Complex Driving Systems</h3>
+                    <p class="card-excerpt">The Keys to Tomorrow's Mobility</p>
+                    <a href="#" class="card-link">
+                        <span>Read more</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            
+            <!-- Card 3 - Over-the-air -->
+            <article class="innovation-card scroll-reveal">
+                <div class="card-image-wrapper">
+                    <img 
+                        src="assets/images/1080x1920_MF_2024_1010_AUDI_EB_00947.jpg" 
+                        alt="Over-the-air updates" 
+                        class="card-image"
+                    />
+                    <div class="card-overlay"></div>
+                </div>
+                <div class="card-content">
+                    <span class="card-date">FEATURED</span>
+                    <h3 class="card-title">Up-to-Date Thanks to over-the-air</h3>
+                    <p class="card-excerpt">Digital lifecycle management keeps vehicles up to date</p>
+                    <a href="#" class="card-link">
+                        <span>Read more</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- E-Mobility Section -->
+    <section class="emobility-section" id="e-mobility">
+        <div class="emobility-hero">
+            <div class="emobility-image-container parallax" data-speed="0.4">
+                <img 
+                    src="assets/images/1920x1080_q6_2024_7079.jpg" 
+                    alt="Audi Q6 e-tron" 
+                    class="emobility-image"
+                />
+                <div class="image-glow"></div>
+            </div>
+            
+            <div class="emobility-content">
+                <span class="section-eyebrow electric-pulse">ELECTRIC FUTURE</span>
+                <h2 class="section-title-large">
+                    <span class="word">E-Mobility</span>
+                </h2>
+                <p class="section-description">
+                    At Audi you'll find the right vehicle for every requirement.<br>
+                    Sporty, luxurious, or compact – discover and configure our series models.
+                </p>
+                
+                <div class="emobility-stats">
+                    <div class="estat">
+                        <span class="estat-value">18.6-17.7</span>
+                        <span class="estat-unit">kWh/100km</span>
+                    </div>
+                    <div class="estat">
+                        <span class="estat-value">0</span>
+                        <span class="estat-unit">g/km CO₂</span>
+                    </div>
+                    <div class="estat">
+                        <span class="estat-value">A</span>
+                        <span class="estat-unit">Emission Class</span>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn-primary large">
+                    <span class="btn-text">Discover all models</span>
+                    <span class="btn-glow"></span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Category Cards Section -->
+    <section class="categories-section">
+        <div class="categories-grid">
+            <!-- Innovation -->
+            <a href="#" class="category-card scroll-reveal">
+                <div class="category-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1920_Innovation_A230547_01.jpg" 
+                        alt="Innovation" 
+                        class="category-image"
+                    />
+                    <div class="category-overlay"></div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Innovation</h3>
+                    <span class="category-cta">Explore →</span>
+                </div>
+            </a>
+            
+            <!-- E-Mobility Card -->
+            <a href="#" class="category-card scroll-reveal">
+                <div class="category-image-wrapper">
+                    <img 
+                        src="assets/images/1440x1440_A251206_large.jpg" 
+                        alt="E-Mobility" 
+                        class="category-image"
+                    />
+                    <div class="category-overlay"></div>
+                    <div class="electric-border"></div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">E-Mobility</h3>
+                    <span class="category-cta">Explore →</span>
+                </div>
+            </a>
+            
+            <!-- AI -->
+            <a href="#" class="category-card scroll-reveal">
+                <div class="category-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_A250752_large.jpg" 
+                        alt="Artificial Intelligence" 
+                        class="category-image"
+                    />
+                    <div class="category-overlay"></div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Artificial Intelligence</h3>
+                    <span class="category-cta">Explore →</span>
+                </div>
+            </a>
+            
+            <!-- Sustainability -->
+            <a href="#" class="category-card scroll-reveal">
+                <div class="category-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_A251204_large.jpg" 
+                        alt="Sustainability" 
+                        class="category-image"
+                    />
+                    <div class="category-overlay"></div>
+                </div>
+                <div class="category-content">
+                    <h3 class="category-title">Sustainability</h3>
+                    <span class="category-cta">Explore →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Sustainability Report -->
+    <section class="sustainability-section" id="sustainability">
+        <div class="sustainability-banner scroll-reveal">
+            <div class="banner-image-wrapper">
+                <img 
+                    src="assets/images/1920x1080_Nachhaltigkeit_Report-2024_A243172_large_01.jpg" 
+                    alt="Sustainability Report 2024" 
+                    class="banner-image parallax"
+                    data-speed="0.2"
+                />
+                <div class="banner-overlay"></div>
+            </div>
+            <div class="banner-content">
+                <span class="banner-badge">REPORT 2024</span>
+                <h2 class="banner-title">Sustainability Report</h2>
+                <p class="banner-description">
+                    Discover how Audi is shaping a sustainable future through innovation,<br>
+                    responsibility, and environmental consciousness.
+                </p>
+                <a href="#" class="btn-ghost light">
+                    <span class="btn-text">Download Report</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Careers Section -->
+    <section class="careers-section" id="careers">
+        <div class="section-header centered">
+            <h2 class="section-title-large">
+                <span class="word">Careers</span>
+            </h2>
+        </div>
+        
+        <div class="careers-grid">
+            <!-- Tech Stories -->
+            <a href="#" class="careers-card large scroll-reveal">
+                <div class="careers-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_MST_IK_Landingpage_CoverImage_1065_01.jpg" 
+                        alt="Tech Stories" 
+                        class="careers-image"
+                    />
+                    <div class="careers-overlay"></div>
+                </div>
+                <div class="careers-content">
+                    <h3 class="careers-title">Tech Stories</h3>
+                    <span class="careers-cta">View all →</span>
+                </div>
+            </a>
+            
+            <!-- Audi Spirit -->
+            <a href="#" class="careers-card scroll-reveal">
+                <div class="careers-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_Karriere_Spirit_A224634_large_01.jpg" 
+                        alt="Audi Spirit" 
+                        class="careers-image"
+                    />
+                    <div class="careers-overlay"></div>
+                </div>
+                <div class="careers-content">
+                    <h3 class="careers-title">Audi Spirit</h3>
+                    <span class="careers-cta">Read more →</span>
+                </div>
+            </a>
+            
+            <!-- Voluntary Work -->
+            <a href="#" class="careers-card scroll-reveal">
+                <div class="careers-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_employees-Ehrensache_01.jpg" 
+                        alt="Everyone pitches in" 
+                        class="careers-image"
+                    />
+                    <div class="careers-overlay"></div>
+                </div>
+                <div class="careers-content">
+                    <h3 class="careers-title">Everyone pitches in</h3>
+                    <span class="careers-cta">Read more →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Press Section -->
+    <section class="press-section">
+        <div class="section-header">
+            <h2 class="section-title-medium">Press releases</h2>
+            <a href="#" class="section-link">To the Audi MediaCenter →</a>
+        </div>
+        
+        <div class="press-grid">
+            <article class="press-card scroll-reveal">
+                <div class="press-image-wrapper">
+                    <img 
+                        src="assets/images/A251983_large.png" 
+                        alt="Audi Revolut F1 Team" 
+                        class="press-image"
+                    />
+                </div>
+                <div class="press-content">
+                    <h3 class="press-title">Audi Revolut F1 Team reveals official name and Berlin launch date</h3>
+                    <a href="#" class="press-link">To the press release →</a>
+                </div>
+            </article>
+            
+            <article class="press-card scroll-reveal">
+                <div class="press-image-wrapper">
+                    <img 
+                        src="assets/images/A251980_large.jpg" 
+                        alt="Carolin Stunz" 
+                        class="press-image"
+                    />
+                </div>
+                <div class="press-content">
+                    <h3 class="press-title">Leadership change at Audi Communications</h3>
+                    <a href="#" class="press-link">To the press release →</a>
+                </div>
+            </article>
+            
+            <article class="press-card scroll-reveal">
+                <div class="press-image-wrapper">
+                    <img 
+                        src="assets/images/1920x1080_A250600_large.jpg" 
+                        alt="Vorsprung durch Technik" 
+                        class="press-image"
+                    />
+                </div>
+                <div class="press-content">
+                    <h3 class="press-title">Warning: scam in the used-car trade</h3>
+                    <a href="#" class="press-link">To the press release →</a>
+                </div>
+            </article>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4 class="footer-heading">Topics</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Company</a></li>
+                        <li><a href="#">Innovation</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Audi in sport</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">AUDI AG</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Audi Report 2024</a></li>
+                        <li><a href="#">Documents & Policies</a></li>
+                        <li><a href="#">Financial Calendar</a></li>
+                        <li><a href="#">Management</a></li>
+                        <li><a href="#">Locations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">myAudi</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Job portal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 AUDI AG. All rights reserved</p>
+                <div class="footer-legal">
+                    <a href="#">Legal notice</a>
+                    <a href="#">Legal</a>
+                    <a href="#">Whistleblower System</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back to Top -->
+        <button class="back-to-top" aria-label="Back to top">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"/>
+            </svg>
+        </button>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
